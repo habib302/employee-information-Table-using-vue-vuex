@@ -43,7 +43,7 @@
                 
                 </div> -->
                 <div class="col-sm-2">
-                    <button @click="showClose" type="button" class="btn btn-danger btn-lg">Close</button>
+                    <button @click="showClose" type="button" class="btn btn-warning btn-lg">Close</button>
                 </div>
             </div>
         </form>
