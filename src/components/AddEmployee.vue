@@ -7,18 +7,26 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="add">
-                    <button>Add Employee</button>
-                </div>
+                <button @click="showModal = true">Show Modal</button>
+                <teleport to="#modal-root">
+                    <Modal v-show="showModal" @close="showModal = false"><h3>Employee Information Add</h3></Modal>
+                </teleport>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    export default {
+import Modal from './Modal.vue'
+export default {
+    components: { Modal },
         
-    }
+    data() {
+        return {
+        showModal: false,
+        };
+    },
+}
 </script>
 
 <style lang="scss" scoped>
