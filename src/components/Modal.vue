@@ -31,12 +31,23 @@
             <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Date Of Joining</label>
                 <div class="col-sm-9">
-                <input v-model="newEmployee.dateOfJoining" type="text" class="form-control" id="inputPassword" placeholder="enter date of joining">
+                <input v-model="newEmployee.dateOfJoining" type="date" class="form-control" id="inputPassword" placeholder="enter date of joining">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-8 col-form-label"></label>
+                <div class="col-sm-2">
+                    <button @click="addEmployeeDispatch()" type="button" class="btn btn-success btn-lg">Submit</button>
+                </div>
+                <!-- <div class="col-sm-1">
+                
+                </div> -->
+                <div class="col-sm-2">
+                    <button @click="showClose" type="button" class="btn btn-danger btn-lg">Close</button>
                 </div>
             </div>
         </form>
-      <button @submit.prevent="addEmployeeDispatch()">Submit</button>
-      <button @click="$emit('close')">Close</button>
+      
     </div>
   </div>
 </template>
@@ -47,6 +58,7 @@ import { v4 as uuidv4 } from 'uuid';
 export default {
   name: "Modal",
   emits: ["close"],
+  props:['showClose'],
   data(){
       return{
          newEmployee:{
@@ -70,7 +82,9 @@ export default {
             email:"",
             phone: "",
             dateOfJoining:""
-         }
+         };
+         this.showClose();
+         
         }
   }
 };

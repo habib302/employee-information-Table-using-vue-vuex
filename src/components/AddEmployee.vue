@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <button @click="showModal = true">Show Modal</button>
                 <teleport to="#modal-root">
-                    <Modal v-show="showModal" @close="showModal = false"><h3>Employee Information Add</h3></Modal>
+                    <Modal v-show="showModal" :showClose="showClose"><h3>Add Employee Information</h3></Modal>
                 </teleport>
             </div>
         </div>
@@ -19,16 +19,39 @@
 <script>
 import Modal from './Modal.vue'
 export default {
-    components: { Modal },
-        
+    components: { Modal},
     data() {
         return {
         showModal: false,
         };
     },
+    methods:{
+        showClose(){
+            this.showModal=false;
+        }
+    }
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.modal {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-color: rgba(0,0,0,.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.modal div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 300px;
+  height: 300px;
+  padding: 5px;
+}
 </style>
