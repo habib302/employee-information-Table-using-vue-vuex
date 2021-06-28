@@ -41,8 +41,18 @@ const getters={
         return state.data;
     }
 };
-const actions={};
-const mutations={};
+const actions={
+    addEmployee({commit},payload){
+        console.log(commit);
+        console.log(payload);
+        commit('setAddEmployee',payload);
+    }
+};
+const mutations={
+    setAddEmployee: (state,payload) =>{
+        state.data.push(payload);
+    }
+};
  
 export default{
     state,
