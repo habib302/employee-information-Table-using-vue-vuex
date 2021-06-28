@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container app-class">
+    <div class="row">
+      <div class="col-md-12">
+          <add-employee />
+          <employee-table />
+      </div>
+    </div>
+  </div>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import {mapGetters} from 'vuex'
+import AddEmployee from './components/AddEmployee.vue'
+import EmployeeTable from './components/EmployeeTable.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AddEmployee,
+    EmployeeTable
+    
+  },
+  computed:{
+    ...mapGetters(['getterData']),
   }
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app-class{
+  padding-top:2%;
+  background-color: #DEEBF3;
 }
 </style>
